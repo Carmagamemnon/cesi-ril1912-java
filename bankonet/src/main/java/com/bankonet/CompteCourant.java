@@ -14,6 +14,19 @@ public class CompteCourant {
 		this.solde = solde;
 		this.numero = numero;
 		CompteCourant.nbComptesCourants++;
+		System.out.println("Compte créé : " + this.toString());
+	}
+
+	public double getSolde() {
+		return this.solde;
+	}
+
+	public void crediter(double montant) {
+		this.solde += montant;
+	}
+
+	public void debiter(double montant) {
+		this.solde -= montant;
 	}
 
 	public static int getNbComptesCourants() {
