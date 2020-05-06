@@ -1,5 +1,10 @@
+/**
+ * Ma première classe
+ * @param arg
+ */
 public class Bonjour {
-  public static void main(String[] arg){
-    System.out.println("Hello Gregory");
+  /* Fonction principale */
+  public static void main(String[] arg) {
+    System.out.println("Hello Gregory"); // Affiche un message de bienvenue
   }
 }
