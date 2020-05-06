@@ -1,0 +1,13 @@
+6+7*8 (int) 62
+7/8 (int) 0
+7%8 (int) 7
+
+int i = 10;
+i += 10;
+i++; (int) 20
+
+int x = 0;
+System.out.println(((x == 0) || (1/x >= 1)));  (No explicit return value)
+
+int x = 0;
+System.out.println(((x == 0) | (1/x >= 1))); An exception occurred during evaluation:  java.lang.ArithmeticException
