@@ -8,4 +8,5 @@ java BonjourPersonnalise
 ## Exercice 1.4
 javadoc .\Bonjour.java -d .\javadoc
 ## Exercice 1.5
-jar cvf Bonjour.jar .\Bonjour.class .\Bonjour.java .\manifestBonjour.txt
+jar cmf .\manifestBonjour.txt .\Bonjour.jar .\Bonjour.class .\Bonjour.java<br/>
+java -jar .\Bonjour.jar
