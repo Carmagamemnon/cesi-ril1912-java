@@ -1,5 +1,6 @@
 public class BonjourPersonnalise {
   public static void main(String[] arg){
-    System.out.println("Coucou ".concat(arg[0]));
+    String name = arg.length > 0 ? arg[0] : "inconnu";
+    System.out.println("Coucou ".concat(name));
   }
 }
