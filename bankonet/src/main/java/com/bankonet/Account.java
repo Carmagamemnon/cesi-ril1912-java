@@ -17,7 +17,7 @@ public class Account {
 		this.id = id;
 		this.label = label;
 		this.balance = balance >= 0 ? balance : 0;
-		this.id = id;
+		this.maxOverdraft = maxOverdraft >= 0 ? maxOverdraft : 0;
 		System.out.println("New account created : " + this.toString());
 	}
 
@@ -26,8 +26,8 @@ public class Account {
 	}
 
 	public void setBalance(double balance) {
-		if (balance < this.maxOverdraft) {
-			throw new IllegalArgumentException("Balance must be higher or equal to max overdraft");
+		if (balance < (0 - this.maxOverdraft)) {
+			throw new ArithmeticException("Balance must be higher or equal to max overdraft");
 		} else {
 			this.balance = balance;
 		}
@@ -46,7 +46,7 @@ public class Account {
 			throw new IllegalArgumentException("Amount must be positive");
 		} else {
 			double newBalance = this.balance - amount;
-			if (newBalance < this.maxOverdraft) {
+			if (newBalance < (0 - this.maxOverdraft)) {
 				throw new ArithmeticException("New balance cannot get under max overdraft");
 			} else {
 				this.balance -= amount;

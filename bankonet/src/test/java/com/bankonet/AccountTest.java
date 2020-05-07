@@ -12,7 +12,7 @@ public class AccountTest {
 	private static Account account03;
 
 	@BeforeAll
-	static void initiialize() {
+	static void initialize() {
 		account01 = new Account("01", "Main account", 0, 300);
 		account02 = new Account("02", "Second account", 100, 100);
 		account03 = new Account("03", "Third account", 1000, 0);
