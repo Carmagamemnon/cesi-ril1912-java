@@ -27,6 +27,7 @@ public class Account {
 		return this.balance;
 	}
 
+	/*
 	public void setBalance(double balance) {
 		if (balance < (0 - this.maxOverdraft)) {
 			throw new ArithmeticException("Balance must be higher or equal to max overdraft");
@@ -34,6 +35,7 @@ public class Account {
 			this.balance = balance;
 		}
 	}
+	*/
 
 	public void credit(double amount) {
 		if (amount < 0) {

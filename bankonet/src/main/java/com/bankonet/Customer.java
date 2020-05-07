@@ -23,6 +23,6 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "[" + this.id + "]" + this.lastname + " " + this.firstname;
+		return "[" + this.id + "] " + this.lastname + " " + this.firstname;
 	}
 }

@@ -9,7 +9,6 @@ public class SavingAccount {
 	private double balance;
 	private double interestRate;
 
-
 	public SavingAccount(String id, String label, double balance, double interestRate) {
 		this.id = id;
 		this.label = label;
@@ -20,14 +19,6 @@ public class SavingAccount {
 
 	public double getBalance() {
 		return this.balance;
-	}
-
-	public void setBalance(double balance) {
-		if (balance < (0 - this.interestRate)) {
-			throw new IllegalArgumentException("Balance must be positive");
-		} else {
-			this.balance = balance;
-		}
 	}
 
 	public void credit(double amount) {
@@ -49,6 +40,10 @@ public class SavingAccount {
 				this.balance -= amount;
 			}
 		}
+	}
+
+	public double getInterests() {
+		return this.balance * this.interestRate / 100;
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class CustomerTest {
 	static void initialize() {
 		account01 = new Account("01", "Main account", 1000, 500);
 		savingAccount01 = new SavingAccount("S01", "PEL", 2000, 0.5);
-		customer01 = new Customer("C01", "John", "Doe", account01, savingAccount01);
+		customer01 = new Customer("C01", "Doe", "John", account01, savingAccount01);
 	}
 
 	@Test
