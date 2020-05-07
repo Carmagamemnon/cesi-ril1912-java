@@ -28,9 +28,9 @@ public class AccountTest {
 	public void credit_exception_negativeValue() {
 		// Given an account
 		// When trying to credit a negative amount
-		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> account.credit(-1));
+		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> account.credit(-1));
 		// Then
-		assertEquals("Amount must be positive", thrown.getMessage());
+		assertEquals("Amount must be positive", ex.getMessage());
 	}
 
 	@Test
@@ -46,9 +46,9 @@ public class AccountTest {
 	public void debit_exception_negativeValue() {
 		// Given an account
 		// When trying to debit a negative amount
-		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> account.debit(-1));
+		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> account.debit(-1));
 		// Then
-		assertEquals("Amount must be positive", thrown.getMessage());
+		assertEquals("Amount must be positive", ex.getMessage());
 	}
 
 	@Test

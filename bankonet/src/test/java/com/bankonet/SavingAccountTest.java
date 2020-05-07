@@ -27,18 +27,18 @@ public class SavingAccountTest {
 	public void debit_exception_negativeValue() {
 		// Given a saving account
 		// When trying to debit a negative amount
-		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> savingAccount.debit(-1));
+		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> savingAccount.debit(-1));
 		// Then
-		assertEquals("Amount must be positive", thrown.getMessage());
+		assertEquals("Amount must be positive", ex.getMessage());
 	}
 
 	@Test
 	public void debit_exception_balanceNotHighEnough() {
 		// Given balance = 10000
 		// When trying to debit more than current balance
-		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> savingAccount.debit(12500));
+		ArithmeticException ex = assertThrows(ArithmeticException.class, () -> savingAccount.debit(12500));
 		// Then
-		assertEquals("Balance after transaction must be positive", thrown.getMessage());
+		assertEquals("Balance after transaction must be positive", ex.getMessage());
 	}
 
 	@Test

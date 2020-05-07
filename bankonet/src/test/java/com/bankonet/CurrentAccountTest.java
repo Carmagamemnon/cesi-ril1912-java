@@ -28,9 +28,9 @@ public class CurrentAccountTest {
 	public void debit_exception_negativeValue() {
 		// Given a current account
 		// When trying to debit a negative amount
-		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> currentAccount.debit(-1));
+		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> currentAccount.debit(-1));
 		// Then
-		assertEquals("Amount must be positive", thrown.getMessage());
+		assertEquals("Amount must be positive", ex.getMessage());
 	}
 
 	@Test
@@ -38,9 +38,9 @@ public class CurrentAccountTest {
 		// Given balance = 1000
 		// And max overdraft = 100
 		// When trying to debit a large amount
-		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> currentAccount.debit(5000));
+		ArithmeticException ex = assertThrows(ArithmeticException.class, () -> currentAccount.debit(5000));
 		// Then
-		assertEquals("Balance after transaction cannot get under max overdraft", thrown.getMessage());
+		assertEquals("Balance after transaction cannot get under max overdraft", ex.getMessage());
 	}
 
 }
