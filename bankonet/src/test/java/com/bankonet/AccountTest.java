@@ -8,11 +8,24 @@ import org.junit.jupiter.api.Test;
 
 public class AccountTest {
 
-	private static Account account;
+	public class ConcreteAccount extends Account {
+
+		public ConcreteAccount(String id, String label, double balance) {
+			super(id, label, balance);
+		}
+
+		@Override
+		public boolean isDebitAuthorized(double amount) {
+			return true;
+		}
+
+	}
+
+	private static ConcreteAccount account;
 
 	@BeforeEach
 	public void initialize() {
-		account = new Account("Acc01", "Main account", 1000);
+		account = new ConcreteAccount("Acc01", "Main account", 1000);
 	}
 
 	@Test
@@ -29,24 +42,6 @@ public class AccountTest {
 		// Given an account
 		// When trying to credit a negative amount
 		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> account.credit(-1));
-		// Then
-		assertEquals("Amount must be positive", ex.getMessage());
-	}
-
-	@Test
-	public void debit_ok() {
-		// Given current balance = 1000
-		// When debiting 100
-		account.debit(100);
-		// Then
-		assertEquals(900, account.getBalance(), "Second account's balance must be equal to 900");
-	}
-
-	@Test
-	public void debit_exception_negativeValue() {
-		// Given an account
-		// When trying to debit a negative amount
-		IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> account.debit(-1));
 		// Then
 		assertEquals("Amount must be positive", ex.getMessage());
 	}

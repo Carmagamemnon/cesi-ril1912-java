@@ -2,7 +2,7 @@ package com.bankonet;
 
 import java.text.DecimalFormat;
 
-public class Account {
+public abstract class Account {
 
 	protected String id;
 	protected String label;
@@ -28,12 +28,14 @@ public class Account {
 	}
 
 	public void debit(double amount) {
-		if (amount < 0) {
-			throw new IllegalArgumentException("Amount must be positive");
-		} else {
+		if (this.isDebitAuthorized(amount)) {
 			this.balance -= amount;
+		} else {
+			throw new IllegalArgumentException("Unauthorized");
 		}
 	}
+
+	public abstract boolean isDebitAuthorized(double amount);
 
 	@Override
 	public String toString() {
