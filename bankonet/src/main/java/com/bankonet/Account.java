@@ -1,5 +1,7 @@
 package com.bankonet;
 
+import java.text.DecimalFormat;
+
 public class Account {
 
 	private String id;
@@ -60,6 +62,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "[" + this.id + "] " + this.label + " : " + this.balance + "€";
+		DecimalFormat df = new DecimalFormat("0.00");
+		return "[" + this.id + "] " + this.label + " : " + df.format(this.balance) + "€";
 	}
 }
