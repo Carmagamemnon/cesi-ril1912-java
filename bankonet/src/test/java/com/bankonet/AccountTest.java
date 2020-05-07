@@ -24,6 +24,22 @@ public class AccountTest {
 	}
 
 	@Test
+	public void setBalance_ok() {
+		// When
+		account01.setBalance(12345);
+		// Then
+		assertEquals(12345, account01.getBalance(), "Main account's balance must be equal to 12345");
+	}
+
+	@Test
+	public void setBalance_exception_balanceLowerThanMaxOverdraft() {
+		// When
+		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> account03.setBalance(-301));
+		// Then
+		assertEquals("Balance must be higher or equal to max overdraft", thrown.getMessage());
+	}
+
+	@Test
 	public void credit_ok() {
 		// Given
 		account01.setBalance(150);
@@ -38,7 +54,7 @@ public class AccountTest {
 		// Given
 		account01.setBalance(0);
 		// When
-		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> account01.credit(-1));
+		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> account01.credit(-1));
 		// Then
 		assertEquals("Amount must be positive", thrown.getMessage());
 	}
@@ -58,7 +74,7 @@ public class AccountTest {
 		// Given
 		account03.setBalance(0);
 		// When
-		ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> account03.debit(-1));
+		IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> account03.debit(-1));
 		// Then
 		assertEquals("Amount must be positive", thrown.getMessage());
 	}
