@@ -96,7 +96,7 @@ public class AccountTest {
 		// When
 		String toStringValue = account01.toString();
 		// Then
-		assertEquals("[01] Main account : 150.00€", toStringValue);
+		assertEquals("[01] Main account : 150,00€", toStringValue);
 	}
 
 }
