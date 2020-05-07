@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
 
-	private static Account account01;
+	private static CurrentAccount currentAccount01;
 	private static SavingAccount savingAccount01;
 	private static Customer customer01;
 
 	@BeforeAll
 	static void initialize() {
-		account01 = new Account("01", "Main account", 1000, 500);
+		currentAccount01 = new CurrentAccount("01", "Main account", 1000, 500);
 		savingAccount01 = new SavingAccount("S01", "PEL", 2000, 0.5);
-		customer01 = new Customer("C01", "Doe", "John", account01, savingAccount01);
+		customer01 = new Customer("C01", "Doe", "John", currentAccount01, savingAccount01);
 	}
 
 	@Test
